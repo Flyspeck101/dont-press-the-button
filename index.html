@@ -1,2 +1,19 @@
 <html>
+  <head>
+    <title>Don't press the button!</title>
+  </head>
+  <body>
+    <script src="notify.js">
+      const pushNotificationSuported = isPushNotificationSupported();
+      if (pushNotificationSuported) {
+      registerServiceWorker();
+        initializePushNotifications().then(function(consent){
+          if(consent === 'granted') {
+           sendNotification();
+          }
+        });
+      }
+    </script>
+    <button onclick="sendNotification()">Don't press me!</button>
+  </body>
 </html>
