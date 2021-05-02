@@ -5,15 +5,15 @@
   <body>
     <script src="notify.js">
       const pushNotificationSuported = isPushNotificationSupported();
-      if (pushNotificationSuported) {
+      
+    </script>
+    <button onclick="if (pushNotificationSuported) {
       registerServiceWorker();
         initializePushNotifications().then(function(consent){
           if(consent === 'granted') {
            sendNotification();
           }
         });
-      }
-    </script>
-    <button onclick="sendNotification()">Don't press me!</button>
+      }">Don't press me!</button>
   </body>
 </html>
